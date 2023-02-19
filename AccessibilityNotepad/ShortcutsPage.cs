@@ -17,11 +17,12 @@ namespace AccessibilityNotepad
 
         SpeechSynthesizer SpeechSynthesizerObj;
         static bool SpeechToTextOn = false;
-       private void ShortcutsPage_Load(object sender, EventArgs e)
+        private void ShortcutsPage_Load(object sender, EventArgs e)
         {
-                SpeechSynthesizerObj = new SpeechSynthesizer();
-                textBox1.Multiline = true;
-         }
+            SpeechSynthesizerObj = new SpeechSynthesizer();
+            textBox1.Multiline = true;
+            FileDarkMode();
+        }
         private void FileClose()
         {
             Close();
@@ -55,36 +56,37 @@ namespace AccessibilityNotepad
             if (colorDlg.ShowDialog() == DialogResult.OK)
             {
                 textBox1.BackColor = colorDlg.Color;
-                panel1.BackColor = colorDlg.Color;
-                panel2.BackColor = colorDlg.Color;
-                panel3.BackColor = colorDlg.Color;
-                panel4.BackColor = colorDlg.Color;
+                BackColor = colorDlg.Color;
             }
         }
         private void FileDarkMode()
         {
-            if (textBox1.BackColor != Color.Black)
+            if (Notepad.IsDarkModeOn == true)
             {
-                panel1.BackColor = Color.Black;
-                panel2.BackColor = Color.Black;
-                panel3.BackColor = Color.Black;
-                panel4.BackColor = Color.Black;
-                textBox1.BackColor = Color.Black;
-                textBox1.ForeColor = Color.White;
-                lblTitle.ForeColor = Color.White;
+                LightModeOn();
             }
-            else
+            else if (Notepad.IsDarkModeOn == false)
             {
-                panel1.BackColor = Color.White;
-                panel2.BackColor = Color.White;
-                panel3.BackColor = Color.White;
-                panel4.BackColor = Color.White;
-                textBox1.BackColor = Color.White;
-                textBox1.ForeColor = Color.Black;
-                lblTitle.ForeColor = Color.Black;
-            }
+                DarkModeOn();
+            }   
         }
-
+        private void DarkModeOn()
+        {
+            BackColor = Color.Black; 
+            textBox1.BackColor = Color.Black;
+            textBox1.ForeColor = Color.White;
+            lblShortcuts.ForeColor = Color.White;
+            Notepad.IsDarkModeOn = false;
+        }
+        private void LightModeOn()
+        {
+            BackColor = Color.White;
+            textBox1.BackColor = Color.White;
+            textBox1.ForeColor = Color.Black;
+            lblShortcuts.ForeColor = Color.Black;
+            Notepad.IsDarkModeOn = true;
+        }
+            
                 private void FileTextToSpeech()
         {
             //Needs System.Speech to work, does not run on college machines atm 
