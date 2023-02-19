@@ -606,6 +606,12 @@ namespace AccessibilityNotepad
                         FileOpenHelp();
                         return true;
                     }
+                case Keys.Control | Keys.Q:
+                    {
+                        AdditionalPage form = new AdditionalPage();
+                        form.Show();
+                        return true;
+                    }
             }
             return base.ProcessCmdKey(ref message, keys);
         }
