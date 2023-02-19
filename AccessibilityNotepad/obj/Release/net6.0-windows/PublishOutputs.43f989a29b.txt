@@ -1,0 +1,7 @@
+C:\Users\hazpa\Desktop\New folder\AccessibilityNotepad.exe
+C:\Users\hazpa\Desktop\New folder\AccessibilityNotepad.dll
+C:\Users\hazpa\Desktop\New folder\AccessibilityNotepad.deps.json
+C:\Users\hazpa\Desktop\New folder\AccessibilityNotepad.runtimeconfig.json
+C:\Users\hazpa\Desktop\New folder\AccessibilityNotepad.pdb
+C:\Users\hazpa\Desktop\New folder\System.Speech.dll
+C:\Users\hazpa\Desktop\New folder\runtimes\win\lib\net6.0\System.Speech.dll

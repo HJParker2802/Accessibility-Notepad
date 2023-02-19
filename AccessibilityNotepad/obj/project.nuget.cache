@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "QHQOe4Us5a6WFpBP8nRmSooP0CZwMj7w7zZLXyKnrWgu5gR/7u5rp6M230htRJhR4iEyFJSDcFKhqdc34Y3+6g==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\hazpa\\source\\repos\\AccessibilityNotepad\\AccessibilityNotepad\\AccessibilityNotepad.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hazpa\\.nuget\\packages\\system.speech\\7.0.0\\system.speech.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
