@@ -66,15 +66,16 @@
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(337, 89);
+            this.panel3.Location = new System.Drawing.Point(285, 88);
             this.panel3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(72, 393);
+            this.panel3.Size = new System.Drawing.Size(128, 393);
             this.panel3.TabIndex = 4;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.lblTitle);
+            this.panel4.Controls.Add(this.panel3);
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel4.Name = "panel4";
@@ -91,6 +92,7 @@
             this.textBox1.Size = new System.Drawing.Size(279, 392);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // ShortcutsPage
             // 
@@ -99,7 +101,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(413, 572);
             this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.textBox1);

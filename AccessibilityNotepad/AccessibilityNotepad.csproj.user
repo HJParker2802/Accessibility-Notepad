@@ -4,6 +4,9 @@
     <_LastSelectedProfileId>C:\Users\hazpa\source\repos\AccessibilityNotepad\AccessibilityNotepad\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Update="AdditionalPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Notepad.cs">
       <SubType>Form</SubType>
     </Compile>

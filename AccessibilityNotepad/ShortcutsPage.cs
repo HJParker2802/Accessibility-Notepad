@@ -186,7 +186,5 @@ namespace AccessibilityNotepad
             }
             return base.ProcessCmdKey(ref message, keys);
         }
-
-        
     }
 }

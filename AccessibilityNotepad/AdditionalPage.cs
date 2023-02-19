@@ -1,30 +1,36 @@
-using System.Security.Cryptography;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
 using System.Speech.Recognition;
 using System.Speech.Synthesis;
-using System.Threading;
+using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics.Contracts;
 
 namespace AccessibilityNotepad
 {
-    public partial class Notepad : Form
+    public partial class AdditionalPage : Form
     {
-        public Notepad()
+        public AdditionalPage()
         {
             InitializeComponent();
+            this.Text = "Notepad " + Notepad.FormCounter;
         }
         SpeechSynthesizer SpeechSynthesizerObj;
         static bool SpeechToTextOn = false;
-        public static int FormCounter = 1;
         public static bool IsDarkModeOn = true;
-        private void Notepad_Load(object sender, EventArgs e)
+        private void AdditionalPage_Load(object sender, EventArgs e)
         {
             SpeechSynthesizerObj = new SpeechSynthesizer();
             NotepadText.Multiline = true;
-            FormCounter++;
+            Notepad.FormCounter++;
             FileDarkMode();
         }
+
         /// ///////////////////////////////////////////////
         // SHORTCUTS
         private void FileOpen()
@@ -112,8 +118,8 @@ namespace AccessibilityNotepad
                 //menuStrip1.Font = new Font(menuStrip1.Font.FontFamily, 9);
                 //menuStrip1.Font = new Font(menuStrip1.Font.Name, "Arial");
                 //menuStrip1.Font = new Font(menuStrip1.Font.FontFamily, 9);
-                
-                menuStrip1.Font = dlg.Font; 
+
+                menuStrip1.Font = dlg.Font;
                 menuStrip1.Font = new Font(menuStrip1.Font.FontFamily, 9);
             }
         }
@@ -124,7 +130,7 @@ namespace AccessibilityNotepad
             {
                 NotepadText.ForeColor = colorDlg.Color;
                 menuStrip1.ForeColor = colorDlg.Color;
-                statusStrip1.ForeColor = colorDlg.Color; 
+                statusStrip1.ForeColor = colorDlg.Color;
                 menuStrip2.ForeColor = colorDlg.Color;
                 fileToolStripMenuItem.ForeColor = colorDlg.Color;
 
@@ -385,7 +391,7 @@ namespace AccessibilityNotepad
                 catch (Exception ex) { MessageBox.Show(ex.Message, "Error with Text To Speech"); SpeechToTextOn = false; }
             }
             else { MessageBox.Show("Speech To Text is Off"); }
-            }
+        }
 
         private void SRE_SpeechRecognized(object? sender, SpeechRecognizedEventArgs e)
         {
@@ -409,7 +415,7 @@ namespace AccessibilityNotepad
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -614,7 +620,7 @@ namespace AccessibilityNotepad
         {
             MatchCollection collection = Regex.Matches(NotepadText.Text, @"[\S]+");
             //return collection.Count;
-            toolStripStatusLabel1.Text = $"WordCount: { Convert.ToString(collection.Count)}";
+            toolStripStatusLabel1.Text = $"WordCount: {Convert.ToString(collection.Count)}";
         }
         private void CharCounter()
         {
