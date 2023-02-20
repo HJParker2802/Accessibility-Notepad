@@ -27,7 +27,8 @@ namespace AccessibilityNotepad
             SpeechSynthesizerObj = new SpeechSynthesizer();
             NotepadText.Multiline = true;
             Notepad.FormCounter++;
-            FileDarkMode();
+            if (Notepad.IsDarkModeOn == true) { DarkModeOn(); }
+            else if (Notepad.IsDarkModeOn == false) { LightModeOn(); }
         }
 
         /// ///////////////////////////////////////////////
@@ -200,18 +201,18 @@ namespace AccessibilityNotepad
         {
             if (Notepad.IsDarkModeOn == false)
             {
-                LightModeOn();
+                DarkModeOn();
             }
             else if (Notepad.IsDarkModeOn == true)
             {
-                DarkModeOn();
+                LightModeOn();
             }
         }
 
 
         private void DarkModeOn()
         {
-            Notepad.IsDarkModeOn = false;
+            Notepad.IsDarkModeOn = true;
             menuStrip1.BackColor = Color.Black;
             menuStrip1.ForeColor = Color.White;
             NotepadText.BackColor = Color.Black;
@@ -275,7 +276,7 @@ namespace AccessibilityNotepad
         }
         private void LightModeOn()
         {
-            Notepad.IsDarkModeOn = true;
+            Notepad.IsDarkModeOn = false;
             menuStrip1.BackColor = Color.White;
             menuStrip1.ForeColor = Color.Black;
             NotepadText.BackColor = Color.White;

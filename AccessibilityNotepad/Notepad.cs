@@ -22,8 +22,8 @@ namespace AccessibilityNotepad
         {
             SpeechSynthesizerObj = new SpeechSynthesizer();
             NotepadText.Multiline = true;
-            FormCounter++;
-            FileDarkMode();
+            if (IsDarkModeOn == true) { DarkModeOn(); }
+            else if (IsDarkModeOn == false) { LightModeOn(); }
         }
         /// ///////////////////////////////////////////////
         // SHORTCUTS
@@ -195,18 +195,18 @@ namespace AccessibilityNotepad
         {
             if (IsDarkModeOn == false)
             {
-                LightModeOn();
+                DarkModeOn();
             }
             else if (IsDarkModeOn == true)
             {
-                DarkModeOn();
+                LightModeOn();
             }
         }
 
 
         private void DarkModeOn()
         {
-            IsDarkModeOn = false;
+            IsDarkModeOn = true;
             menuStrip1.BackColor = Color.Black;
             menuStrip1.ForeColor = Color.White;
             NotepadText.BackColor = Color.Black;
@@ -270,7 +270,7 @@ namespace AccessibilityNotepad
         }
         private void LightModeOn()
         {
-            IsDarkModeOn = true;
+            IsDarkModeOn = false;
             menuStrip1.BackColor = Color.White;
             menuStrip1.ForeColor = Color.Black;
             NotepadText.BackColor = Color.White;
@@ -506,7 +506,6 @@ namespace AccessibilityNotepad
             AdditionalPage form = new AdditionalPage();
             form.Show();
         }
-
         //END MENU STRIP
         //===========================================================================================================
 

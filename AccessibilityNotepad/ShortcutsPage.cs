@@ -21,7 +21,8 @@ namespace AccessibilityNotepad
         {
             SpeechSynthesizerObj = new SpeechSynthesizer();
             textBox1.Multiline = true;
-            FileDarkMode();
+            if (Notepad.IsDarkModeOn == true) { DarkModeOn(); }
+            else if (Notepad.IsDarkModeOn == false) { LightModeOn(); }
         }
         private void FileClose()
         {
@@ -61,13 +62,13 @@ namespace AccessibilityNotepad
         }
         private void FileDarkMode()
         {
-            if (Notepad.IsDarkModeOn == true)
-            {
-                LightModeOn();
-            }
-            else if (Notepad.IsDarkModeOn == false)
+            if (Notepad.IsDarkModeOn == false)
             {
                 DarkModeOn();
+            }
+            else if (Notepad.IsDarkModeOn == true)
+            {
+                LightModeOn();
             }   
         }
         private void DarkModeOn()
@@ -76,7 +77,7 @@ namespace AccessibilityNotepad
             textBox1.BackColor = Color.Black;
             textBox1.ForeColor = Color.White;
             lblShortcuts.ForeColor = Color.White;
-            Notepad.IsDarkModeOn = false;
+            Notepad.IsDarkModeOn = true;
         }
         private void LightModeOn()
         {
@@ -84,7 +85,7 @@ namespace AccessibilityNotepad
             textBox1.BackColor = Color.White;
             textBox1.ForeColor = Color.Black;
             lblShortcuts.ForeColor = Color.Black;
-            Notepad.IsDarkModeOn = true;
+            Notepad.IsDarkModeOn = false;
         }
             
                 private void FileTextToSpeech()
