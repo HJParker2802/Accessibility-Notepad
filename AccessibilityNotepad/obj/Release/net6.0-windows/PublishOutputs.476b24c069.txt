@@ -1,0 +1,7 @@
+C:\Users\par21001799\Desktop\Accessibility-Notepad\AccessibilityNotepad.exe
+C:\Users\par21001799\Desktop\Accessibility-Notepad\AccessibilityNotepad.dll
+C:\Users\par21001799\Desktop\Accessibility-Notepad\AccessibilityNotepad.deps.json
+C:\Users\par21001799\Desktop\Accessibility-Notepad\AccessibilityNotepad.runtimeconfig.json
+C:\Users\par21001799\Desktop\Accessibility-Notepad\AccessibilityNotepad.pdb
+C:\Users\par21001799\Desktop\Accessibility-Notepad\System.Speech.dll
+C:\Users\par21001799\Desktop\Accessibility-Notepad\runtimes\win\lib\net6.0\System.Speech.dll

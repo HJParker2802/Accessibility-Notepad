@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "8p+MtrSta1F6EJlqlQ3EGSMMi9AryZJ5z6yoTR2ppqlS3nUI3UjbFopoxFTaqRgffefDn4cwNqbrAGsx9vWsRw==",
+  "dgSpecHash": "EPMxXQqqKz9R+62faT0z7qoFQvcjiGVXyA/OHy6lePMt6mQwWnPJtYnuLhZZYk5/aAlg/TwNWTAHPSqddyx0tQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\hazpa\\OneDrive\\Documents\\GitHub\\Accessibility-Notepad\\AccessibilityNotepad\\AccessibilityNotepad.csproj",
+  "projectFilePath": "C:\\Users\\par21001799\\Documents\\GitHub\\Accessibility-Notepad\\AccessibilityNotepad\\AccessibilityNotepad.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\hazpa\\.nuget\\packages\\system.speech\\7.0.0\\system.speech.7.0.0.nupkg.sha512"
+    "C:\\Users\\par21001799\\.nuget\\packages\\system.speech\\7.0.0\\system.speech.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }
