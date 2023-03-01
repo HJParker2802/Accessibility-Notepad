@@ -342,8 +342,7 @@ namespace AccessibilityNotepad
             MessageBox.Show("This notepad is epic and you are not");
         }
         private void FileTextToSpeech()
-        {
-            //Needs System.Speech to work, does not run on college machines atm 
+        { 
             if (SpeechSynthesizerObj.State == SynthesizerState.Paused)
             {
                 SpeechSynthesizerObj.Resume();
@@ -365,28 +364,33 @@ namespace AccessibilityNotepad
 
         private void FileSpeechToText()
         {//https://www.youtube.com/watch?v=EgfsGUbhH54
-            if (SpeechToTextOn == false) { SpeechToTextOn = true; }
-            else if (SpeechToTextOn == true) { SpeechToTextOn = false; }
+            Grammar GR = new DictationGrammar();
+            try
+            {
+                SpeechToTextOn = true;
+                SRE.RequestRecognizerUpdate();
+                SRE.LoadGrammar(GR);
+                SRE.SpeechRecognized += SRE_SpeechRecognized;
+                SRE.SetInputToDefaultAudioDevice();
+                SRE.RecognizeAsync(RecognizeMode.Multiple);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message, "Error with Text To Speech"); SpeechToTextOn = false; }
+        }
 
-            if (SpeechToTextOn == true)
+        private void ToggleSpeechToText()
+        {
+            if (SpeechToTextOn == false)
             {
                 MessageBox.Show("Speech To Text is On");
-                //clist.Add(new string[] { "Hello", "Good Morning", "Son of a bitch", "Son of a witch" });
-                //Grammar GR = new Grammar(new GrammarBuilder(clist));
-                Grammar GR = new DictationGrammar();
-                try
-                {
-                    SRE.RequestRecognizerUpdate();
-                    SRE.LoadGrammar(GR);
-                    SRE.SpeechRecognized += SRE_SpeechRecognized;
-                    SRE.SetInputToDefaultAudioDevice();
-                    SRE.RecognizeAsync(RecognizeMode.Multiple);
-                }
-                catch (Exception ex) { MessageBox.Show(ex.Message, "Error with Text To Speech"); SpeechToTextOn = false; }
+                FileSpeechToText();
             }
-            else { MessageBox.Show("Speech To Text is Off"); }
+            else if (SpeechToTextOn == true)
+            {
+                MessageBox.Show("Speech To Text is Off");
+                SRE.RecognizeAsyncCancel();
+                SpeechToTextOn = false;
             }
-
+        }
         private void SRE_SpeechRecognized(object? sender, SpeechRecognizedEventArgs e)
         {
             NotepadText.Text = NotepadText.Text + e.Result.Text.ToString() + Environment.NewLine;
@@ -479,7 +483,7 @@ namespace AccessibilityNotepad
 
         private void speechToTextToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FileSpeechToText();
+            ToggleSpeechToText();
         }
 
         private void backgroundColourToolStripMenuItem_Click(object sender, EventArgs e)
@@ -597,7 +601,7 @@ namespace AccessibilityNotepad
                     }
                 case Keys.Control | Keys.F6:
                     {
-                        FileSpeechToText();
+                        ToggleSpeechToText();
                         return true;
                     }
                 case Keys.Control | Keys.H:
